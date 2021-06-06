@@ -16,10 +16,31 @@ let candidateAnswers;
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 
+const userName = require('readline-sync');
+ candidateName = userName.question("What is your name?   ")
+ console.log("Hello ", candidateName);
+
+
+
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+const userAnswer = require('readline-sync');
+correctAnswer = "Sally Ride";
+
+candidateAnswer = userAnswer.question("Who was the first American woman in space?  ");
+
+
+
+if (candidateAnswer === correctAnswer) {
+console.log("Correct!")
+
+}else {
+console.log("Incorrect")
+}
+
+
 
 
 }
