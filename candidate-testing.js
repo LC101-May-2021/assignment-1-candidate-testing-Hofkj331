@@ -27,9 +27,10 @@ const userName = require('readline-sync');
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 const userAnswer = require('readline-sync');
-correctAnswer = "Sally Ride";
+correctAnswer = ("Sally Ride", "true", "40", "Trajectory", "3");
 
-candidateAnswer = userAnswer.question("Who was the first American woman in space?  ");
+candidateAnswer = userAnswer.question("Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters", "(5+3)/2*10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45].  What entry is at index 2?", "What is the minimum crew size for the ISS?");
+
 
 
 
