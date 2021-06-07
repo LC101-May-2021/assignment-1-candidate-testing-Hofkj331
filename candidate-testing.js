@@ -27,24 +27,45 @@ const userName = require('readline-sync');
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 const userAnswer = require('readline-sync');
-correctAnswer = ("Sally Ride", "true", "40", "Trajectory", "3");
+correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
 
-candidateAnswer = userAnswer.question("Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters", "(5+3)/2*10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45].  What entry is at index 2?", "What is the minimum crew size for the ISS?");
+candidateAnswer = ["Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters?    ", "(5+3)/2*10 = ?   ", "Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", "What is the minimum crew size for the ISS?   "];
 
+for (i = 0; i < correctAnswer.length; i++) {
 
-
-
-if (candidateAnswer === correctAnswer) {
+  console.log(userAnswer.question(candidateAnswer[i]))
+  if (correctAnswer === userAnswer) {
 console.log("Correct!")
 
 }else {
 console.log("Incorrect")
+
+}
+ 
 }
 
 
 
 
+
+
+
+
+
+
+/*if (candidateAnswer === correctAnswer) {
+console.log("Correct!")
+
+}else {
+console.log("Incorrect")
+
 }
+
+*/
+
+}
+
+
 
 function gradeQuiz(candidateAnswers) {
 
