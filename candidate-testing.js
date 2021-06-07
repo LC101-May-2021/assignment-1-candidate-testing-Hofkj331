@@ -24,21 +24,47 @@ const userName = require('readline-sync');
 
 }
 
+
+//Previous 1.1 Requirement - I think something went wrong with part 1 and part 2, resulting my first part getting written over. 
+
+/*function askQuestion() {
+  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+const userAnswer = require('readline-sync');
+correctAnswer = "Sally Ride";
+
+candidateAnswer = userAnswer.question("Who was the first American woman in space?  ");
+
+
+
+if (candidateAnswer === correctAnswer) {
+console.log("Correct!")
+
+}else {
+console.log("Incorrect")
+}
+*/
+
+
+
+
+
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 const userAnswer = require('readline-sync');
 correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
 
-candidateAnswer = ["Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters?    ", "(5+3)/2*10 = ?   ", "Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", "What is the minimum crew size for the ISS?   "];
-
+quizletQ = ["Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters?    ", "(5+3)/2*10 = ?   ", "Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", "What is the minimum crew size for the ISS?   "];
+let candidateAnswer = [];
 for (i = 0; i < correctAnswer.length; i++) {
 
-  console.log(userAnswer.question(candidateAnswer[i]))
-  if (correctAnswer === userAnswer) {
-console.log("Correct!")
+  userAnswer.question(quizletQ[i])
+  //userAnswer[i].push(candidateAnswer[i]);
+  
+  if (correctAnswer[i] === candidateAnswer[i]) {
+console.log(userAnswer, "Correct!")
 
 }else {
-console.log("Incorrect")
+console.log("Incorrect.  You answered,  ", userAnswer[i], "Correct answer is ", correctAnswer[i])
 
 }
  
