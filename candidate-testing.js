@@ -18,7 +18,7 @@ function askForName() {
 
 const userName = require('readline-sync');
  candidateName = userName.question("What is your name?   ")
- console.log("Hello ", candidateName);
+ console.log("Cnadidate Name:  ", candidateName);
 
 
 
@@ -45,8 +45,9 @@ console.log("Incorrect")
 */
 
 
-
-
+let numberOfAnswers = 5;
+let cor = 0;
+let incor = 0;
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
@@ -57,20 +58,23 @@ quizletQ = ["Who was the first American woman in space?  ", "True or False: 5 ki
 let candidateAnswer = [];
 for (i = 0; i < correctAnswer.length; i++) {
 
+
   userAnswer.question(quizletQ[i])
   //userAnswer[i].push(candidateAnswer[i]);
   
   if (correctAnswer[i] === candidateAnswer[i]) {
-console.log(userAnswer, "Correct!")
+console.log("Your Answer is correct!")
+let cor = 0;
+cor = cor + 1;
 
 }else {
 console.log("Incorrect.  You answered,  ", userAnswer[i], "Correct answer is ", correctAnswer[i])
 
+incor = incor +1;
+
 }
  
 }
-
-
 
 
 
@@ -99,8 +103,21 @@ function gradeQuiz(candidateAnswers) {
 
 
   let grade;
+  grade = 0;
   
+grade = (cor/numberOfAnswers);
+  
+  
+  console.log(">>>OVERALL GRADE:  ", grade,"%", "(", cor, " of ", numberOfAnswers, " responses correct)<<<");
 
+  if (grade > .50) {
+    console.log(">>>Status: PASSED<<<")
+  }else{
+    console.log(">>>Status: FAILED<<<")
+  }
+
+  
+  
   return grade;
 }
 
