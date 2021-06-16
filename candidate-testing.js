@@ -64,7 +64,7 @@ questions = ["Who was the first American woman in space?  ",
 "Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", 
 "What is the minimum crew size for the ISS?   "];
 
-function askQuestion(questionsArray) {
+function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 
 correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
@@ -77,14 +77,17 @@ for (i = 0; i < correctAnswer.length; i++) {
 
 
 
-//console.log(questions[i]);
+console.log(questions[i]);
+candidateAnswer = input.question("");
 
- candidateAnswer = input.question(questions[i]);
- // candidateAnswer.push(input.question(questions[i]));
- 
+
+  //candidateAnswer = input.question(questions[i]);
+//candidateAnswer = questions.push(candidateAnswers);
+  console.log(candidateAnswer);
+   // userAnswer.push(candidateAnswer);
   
   
-  if (correctAnswer[i] === candidateAnswer[i]) {
+  if (correctAnswer[i] === candidateAnswer) {
 console.log("Your Answer is correct!")
 
 
@@ -93,7 +96,7 @@ console.log("Your Answer is correct!")
 cor = cor + 1;
 
 }else {
-console.log("Incorrect.  You answered,  ", candidateAnswer[i], "Correct answer is ", correctAnswer[i])
+console.log("Incorrect.  You answered,  ", candidateAnswer, "Correct answer is ", correctAnswer[i])
 
 //variable storage for inccorrect answers
 incor = incor +1;
