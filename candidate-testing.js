@@ -13,6 +13,8 @@ let correctAnswers;
 let candidateAnswers;
 
 
+
+
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 
@@ -45,35 +47,60 @@ console.log("Incorrect")
 */
 
 
+
+
+//moved this line outside of the function
+// because the lectures said to never put
+// a const / require readlinesync inside
+// a function
+const userAnswer = require('readline-sync');
 let numberOfAnswers = 5;
 let cor = 0;
 let incor = 0;
 
-function askQuestion() {
+questions = ["Who was the first American woman in space?  ", 
+"True or False: 5 kilometer === 5000 meters?    ", 
+"(5+3)/2*10 = ?   ", 
+"Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", 
+"What is the minimum crew size for the ISS?   "];
+
+function askQuestion(questionsArray) {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-const userAnswer = require('readline-sync');
+
 correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
 
-quizletQ = ["Who was the first American woman in space?  ", "True or False: 5 kilometer === 5000 meters?    ", "(5+3)/2*10 = ?   ", "Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", "What is the minimum crew size for the ISS?   "];
-let candidateAnswer = [];
+ 
+
+
+
 for (i = 0; i < correctAnswer.length; i++) {
 
 
-  userAnswer.question(quizletQ[i])
-  //userAnswer[i].push(candidateAnswer[i]);
+
+//console.log(questions[i]);
+
+ candidateAnswer = input.question(questions[i]);
+ // candidateAnswer.push(input.question(questions[i]));
+ 
+  
   
   if (correctAnswer[i] === candidateAnswer[i]) {
 console.log("Your Answer is correct!")
-let cor = 0;
+
+
+//variable storage for correct answers
+
 cor = cor + 1;
 
 }else {
-console.log("Incorrect.  You answered,  ", userAnswer[i], "Correct answer is ", correctAnswer[i])
+console.log("Incorrect.  You answered,  ", candidateAnswer[i], "Correct answer is ", correctAnswer[i])
 
+//variable storage for inccorrect answers
 incor = incor +1;
 
 }
- 
+ //return ;
+
 }
 
 
@@ -110,13 +137,13 @@ grade = (cor/numberOfAnswers);
   
   console.log(">>>OVERALL GRADE:  ", grade,"%", "(", cor, " of ", numberOfAnswers, " responses correct)<<<");
 
-  if (grade > .50) {
+  /*if (grade > .50) {
     console.log(">>>Status: PASSED<<<")
   }else{
     console.log(">>>Status: FAILED<<<")
   }
 
-  
+  */
   
   return grade;
 }
