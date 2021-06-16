@@ -138,15 +138,15 @@ function gradeQuiz(candidateAnswers) {
 grade = (cor/numberOfAnswers);
   
   
-  console.log(">>>OVERALL GRADE:  ", grade,"%", "(", cor, " of ", numberOfAnswers, " responses correct)<<<");
+  console.log(">>>OVERALL GRADE:  ", grade*100,"%", "(", cor, " of ", numberOfAnswers, " responses correct)<<<");
 
-  /*if (grade > .50) {
+  if (grade > .50) {
     console.log(">>>Status: PASSED<<<")
   }else{
     console.log(">>>Status: FAILED<<<")
   }
 
-  */
+  
   
   return grade;
 }
