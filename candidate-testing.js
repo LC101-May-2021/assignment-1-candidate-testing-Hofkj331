@@ -5,12 +5,22 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
+
+
 let question;
-let correctAnswer;
-let candidateAnswer;
-let questions;
+
+let correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
+let candidateAnswer =[];
+
+let questions  = ["Who was the first American woman in space?  ", 
+"True or False: 5 kilometer === 5000 meters?    ", 
+"(5+3)/2*10 = ?   ", 
+"Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", 
+"What is the minimum crew size for the ISS?   "];
+
 let correctAnswers;
-let candidateAnswers;
+let candidateAnswers = [];
+let cor = 0;
 
 
 
@@ -18,110 +28,28 @@ let candidateAnswers;
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 
-const userName = require('readline-sync');
- candidateName = userName.question("What is your name?   ")
+ candidateName = input.question("What is your name?   ")
  console.log("Cnadidate Name:  ", candidateName);
 
-
-
 }
 
-
-//Previous 1.1 Requirement - I think something went wrong with part 1 and part 2, resulting my first part getting written over. 
-
-/*function askQuestion() {
-  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-const userAnswer = require('readline-sync');
-correctAnswer = "Sally Ride";
-
-candidateAnswer = userAnswer.question("Who was the first American woman in space?  ");
-
-
-
-if (candidateAnswer === correctAnswer) {
-console.log("Correct!")
-
-}else {
-console.log("Incorrect")
-}
-*/
-
-
-
-
-//moved this line outside of the function
-// because the lectures said to never put
-// a const / require readlinesync inside
-// a function
-const userAnswer = require('readline-sync');
-let numberOfAnswers = 5;
-let cor = 0;
-let incor = 0;
-
-questions = ["Who was the first American woman in space?  ", 
-"True or False: 5 kilometer === 5000 meters?    ", 
-"(5+3)/2*10 = ?   ", 
-"Given the array [8, 'Orbit', 'Trajectory', 45]  What entry is at index 2?   ", 
-"What is the minimum crew size for the ISS?   "];
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-
-correctAnswer = ["Sally Ride", "True", "40", "Trajectory", "3"];
-
  
 
+ //iterate question array 
+for (i = 0; i < questions.length; i++) {
 
-
-for (i = 0; i < correctAnswer.length; i++) {
-
-
-
-console.log(questions[i]);
-candidateAnswer = input.question("");
-
-
-  //candidateAnswer = input.question(questions[i]);
-//candidateAnswer = questions.push(candidateAnswers);
-  console.log(candidateAnswer);
-   // userAnswer.push(candidateAnswer);
+// loopiing for new answers
+candidateAnswer = input.question(questions[i]);
   
+   
+   // saving answers
+  candidateAnswers.push(candidateAnswer);
   
-  if (correctAnswer[i] === candidateAnswer) {
-console.log("Your Answer is correct!")
-
-
-//variable storage for correct answers
-
-cor = cor + 1;
-
-}else {
-console.log("Incorrect.  You answered,  ", candidateAnswer, "Correct answer is ", correctAnswer[i])
-
-//variable storage for inccorrect answers
-incor = incor +1;
-
-}
- //return ;
-
 }
 
-
-
-
-
-
-
-
-/*if (candidateAnswer === correctAnswer) {
-console.log("Correct!")
-
-}else {
-console.log("Incorrect")
-
-}
-
-*/
 
 }
 
@@ -131,14 +59,37 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
+ for (i = 0; i < correctAnswer.length; i++) {
+   for (j = 0; j < candidateAnswers.length; j++) {
+ 
+ if (correctAnswer[i] === candidateAnswers[j]) {
+console.log("Your Answer is correct!")
+
+
+//variable storage for correct answers
+
+cor = cor+1;
+
+//NAN is thrown
+//correctAnswer = correctAnswer + 1;
+
+}
+
+else {
+console.log("Incorrect.  You answered,  ", candidateAnswers[j], "Correct answer is ", correctAnswer[i])
+
+}
+   }
+
+}
 
   let grade;
   grade = 0;
   
-grade = (cor/numberOfAnswers);
+grade = (cor/5);
   
   
-  console.log(">>>OVERALL GRADE:  ", grade*100,"%", "(", cor, " of ", numberOfAnswers, " responses correct)<<<");
+  console.log(">>>OVERALL GRADE:  ", grade*100,"%", "(", cor, " of ", 5, " responses correct)<<<");
 
   if (grade > .50) {
     console.log(">>>Status: PASSED<<<")
