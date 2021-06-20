@@ -62,6 +62,8 @@ function gradeQuiz(candidateAnswers) {
  for (i = 0; i < correctAnswer.length; i++) {
    for (j = 0; j < candidateAnswers.length; j++) {
  
+ if (i===j) {
+ 
  if (correctAnswer[i] === candidateAnswers[j]) {
 console.log("Your Answer is correct!")
 
@@ -79,6 +81,8 @@ else {
 console.log("Incorrect.  You answered,  ", candidateAnswers[j], "Correct answer is ", correctAnswer[i])
 
 }
+
+ }
    }
 
 }
